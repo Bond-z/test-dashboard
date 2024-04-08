@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Test case </title>
+{% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SCC API Test Results</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+
+    <style>
+
+
+        .container {
+            display: flex;
+        }
+        .row {
+            background-color: #d5d3d3;
+            /* border: 1px solid #cccccc; */
+            /* border-radius: 5px; */
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+            margin-right: 25px;
+            margin-bottom: 5px;
+            padding: 0 0 0 0;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .card.full {
+            width: 98.5%;
+            /* flex-wrap: wrap;
+            justify-content: left; */
+            padding: 1em 0 1em 0;
+        }
+        .card.half {
+            width: 69%;
+            padding: 1em 0 1em 0;
+        }
+        .card.quarter {
+            width: 28%;
+            padding: 2em 0 2em 0;
+        }
+
+        .barchart {
+            width: 50px; /* Example width */
+            height: 20px; /* Example height */
+            background-color: #f0f0f0; /* Just for visualization */
+            margin: 5px; /* Adjust as needed */
+        }
+
+        .awscard {
+            /* width: calc(25% - 10px); Adjust for card spacing */
+            font-size: 20px;
+            border: 1px solid #cbcac9;
+            border-radius: 1px;
+            padding: 2em 0 2em 0;
+            background-color: #ec9843;
+            color: black;
+            width: 20%;
+    
+        }
+
+        .azurecard {
+            /* width: calc(25% - 10px); Adjust for card spacing */
+            font-size: 20px;
+            border: 1px solid #8a8b8d;
+            background-color: #3f7bf3;
+            border-radius: 1px;
+            padding: 2em 0 2em 0;
+            width: 20%;
+        }
+
+        .passresult{
+            font-size: 20px;
+            border: 1px solid #8a8b8d;
+            background-color: #61ee5c;
+            border-radius: 1px;
+            padding: 1em 0 1em 0;
+            width: 100px;
+        }
+
+        .failresult{
+            font-size: 20px;
+            border: 1px solid #8a8b8d;
+            background-color: #ec8877;
+            border-radius: 1px;
+            padding: 1em 0 1em 0;
+            width: 100px;
+        }
+
+        .fail-button {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .table {
+            font-size: 16px;
+            text-align: left;
+            width: 90%;
+            padding: 1em 0 1em 0;
+            margin-left: 5%;
+            margin-right: 10%;
+        }
+
+        .pass {
+            color: green;
+
+            }
+
+        .fail {
+            color: red;
+
+        }
+
+        .pass-box{
+            width: 41%;
+            min-height: 150px;
+            background-color: #61ee5c;
+            float: left;
+            line-height: 150px;
+            font-size: 26px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 2000;
+        }
+
+        .fail-box{
+            width: 41%;
+            min-height: 150px;
+            background-color: #eb5e4e;
+            float: right;
+            line-height: 150px;
+            font-size: 26px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 2000;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <div style="font-size: 28px; font-weight: 800; margin-bottom: 15px;">
+        Current Test Result Of Cycle No. : {{current_cycle}}
+    </div>
+
+    <div class="row">
+        <div class="pass-box">PASS: {{count_pass}}</div>
+        <div class="fail-box">FAIL: {{count_fail}}</div>
+    </div>
+
+
+    <div class="row">
+        <div class="awscard">
+            <h2>SCCAWS</h2>
+            <p>PASS: {{sw_p_amt}}</p>
+            <p>FAIL: {{sw_f_amt}}</p>
+        </div>
+        <div class="azurecard">
+            <h2>SCCAZURE</h2>
+            <p>PASS: {{sa_p_amt}}</p>
+            <p>FAIL: {{sa_f_amt}}</p>
+        </div>
+        <div class="awscard">
+            <h2>FCPAWS</h2>
+            <p>PASS: {{fw_p_amt}}</p>
+            <p>FAIL: {{fw_f_amt}}</p>
+        </div>
+        <div class="azurecard">
+            <h2>FCPAZURE</h2>
+            <p>PASS: {{fz_p_amt}}</p>
+            <p>FAIL: {{fz_f_amt}}</p>
+        </div>
+    </div>
+    
+
+
+    <div class="card-container">
+        <div class="card full">
+            <div>
+                {% if testresults %}
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Cycle</th>
+                            <th scope="col">Test ID</th>
+                            <th scope="col">Test Case Name</th>
+                            <th scope="col">Test Result</th>
+                        </tr>
+                        </thead>
+
+                    {% for testresult in testresults %}
+                        <tr>
+                        <td>{{testresult.id}}</td>
+                        <td>{{testresult.cycleid}}</td>
+                        <td>{{testresult.testcaseid}}</td>
+                        <td>{{testresult.usecase}}</td>
+                        <td class="{% if testresult.result == 'PASS' %} pass {% elif testresult.result == 'FAIL' %} fail {% endif %}" >{{ testresult.result }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+{% endblock %}
