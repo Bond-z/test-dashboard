@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Test case </title>
+{% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCC API Test Cases</title>
+
+    <style>
+        *{
+            margin: 0;
+            box-sizing: content-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 22px;
+            background-color: #fdfdfd;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0 1em 0;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin: 0 10px;
+        }
+        
+        .main{
+            display: flex;
+            flex: 1;
+        }
+
+        .left{
+            background: #fdfdfd;
+            padding: 0 0 3em 0;
+            flex: 1 1 20px;
+        }
+
+        main{
+            background: #fdfdfd;
+            padding: 0 0 3em 0;
+            flex: 5 5 750px;
+            height: auto;
+            text-align: left;
+            align-items: center;
+        }
+
+        .right{
+            background: #fdfdfd;
+            padding: 0 0 3em 0;
+            flex: 1 1 1px;
+
+        }
+
+        .row {
+            align-items: center;
+            width: 70%;
+            max-width: 1300px; /* Adjust the maximum width as needed */
+            padding-left: 15px;
+        }
+
+        .table {
+            font-size: 16px;
+        }
+
+
+        @media all and (max-width: 1300px) {
+            .main {
+                flex-direction: column;
+                display: flex;
+            }
+            main{
+                padding: 5em 0 5em 5em;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="main">
+        <aside class="left"> </aside>
+
+        <main> 
+            {% if testcases %}
+            
+            <table class="table table-striped" style="width:80%">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Test ID</th>
+                    <th scope="col">Test Case Name</th>
+        
+                </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for testcase in testcases %}
+                        <tr>
+                        <td>{{testcase.id}}</td>
+                        <td>{{testcase.testcaseid}}</td>
+                        <td>{{testcase.usecase}}</td>
+                        </tr>
+                    {% endfor %}
+
+                    
+                </tbody>
+            </table>
+            {% endif %}
+        </main>
+
+    <aside class="right"></aside>
+            
+    
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

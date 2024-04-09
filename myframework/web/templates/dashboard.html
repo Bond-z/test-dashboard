@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Dashboard </title>
+{% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title style="text-align: left;">SCC API Test Results Dashboard</title>
+
+
+    <style>
+        *{
+            margin: 0;
+            box-sizing: content-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 22px;
+            background-color: #fdfdfd;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0 1em 0;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin: 0 10px;
+        }
+        
+        .main{
+            display: flex;
+            flex: 1;
+        }
+
+        .left{
+            background: #fdfdfd;
+            padding: 0 0 3em 0;
+            flex: 1 1 20px;
+        }
+
+        main{
+            background: #fdfdfd;
+            padding: 0 0 3em 0;
+            flex: 5 5 350px;
+            height: auto;
+            text-align: left;
+            align-items: center;
+        }
+
+        .right{
+            background: #fdfdfd;
+            padding: 0 0 3em 0;
+            flex: 1 1 1px;
+
+        }
+
+        .row {
+            align-items: center;
+            width: 70%;
+            max-width: 1300px; /* Adjust the maximum width as needed */
+            padding-left: 15px;
+        }
+
+        .table {
+            font-size: 16px;
+        }
+
+        .pass {
+                color: green;
+
+            }
+
+        .fail {
+            color: red;
+
+        }
+
+
+        @media all and (max-width: 1300px) {
+            .main {
+                flex-direction: column;
+                display: flex;
+            }
+            main{
+                padding: 5em 0 5em 5em;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="main">
+        <aside class="left"> </aside>
+
+        <main> 
+            <br><br><br>
+            <h1> ** There will be a chart and test run result for daily execution here ** </h1>
+            <br><br><br>
+
+            {% if fcpazure %}
+            
+            <table class="table table-dark" style="width:90%">
+                <thead>
+                    <p style="text-align: center;"> SCC API Test Results Dashboard </p>
+                <tr>
+                    <th scope="col">Cycle</th>
+                    <th scope="col" colspan="2" style="text-align: center;"> SCCAWS <br> Pass  /  Fail </th>
+                    <th scope="col" colspan="2" style="text-align: center;"> SCCAZURE <br> Pass  /  Fail </th>
+                    <th scope="col" colspan="2" style="text-align: center;"> FCPAWS <br> Pass  /  Fail </th>
+                    <th scope="col" colspan="2" style="text-align: center;"> FCPAZURE <br> Pass  /  Fail </th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for sw, sz, fw, fz  in zipped_data  %}
+                        <tr>
+                        <td>{{sw.cycleid}}</td>
+                        <td> <div class="{% if sw.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{sw.pass_amt}} </div>  </td>
+                        <td> <div class="{% if sw.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{sw.fail_amt}}</div> </td>
+                        <td> <div class="{% if sz.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{sz.pass_amt}} </div> </td>
+                        <td> <div class="{% if sz.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{sz.fail_amt}}</div> </td>
+                        <td> <div class="{% if fw.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{fw.pass_amt}} </div> </td> 
+                        <td> <div class="{% if fw.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{fw.fail_amt}}</div> </td>
+                        <td> <div class="{% if fz.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{fz.pass_amt}} </div> </td> 
+                        <td> <div class="{% if fz.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{fz.fail_amt}}</div> </td>
+                        </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+            {% endif %}
+
+            <div class="row">
+                <div style="align-self: center;">
+                    {{ chart|safe }}
+                </div>
+            </div>
+
+        </main>
+
+        <aside class="right"></aside>
+
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="justify-content: center;">Run Robot Command</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+
+    <style>
+        *{
+            margin: 5px;
+            box-sizing: content-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0 1em 0;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-size: 22px;
+            height: auto;
+            background-color: #b3aeae;
+        }
+
+        nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin: 0 10px;
+        }
+         
+        .main{
+            display: flex;
+            flex: 1;
+        }
+
+        .left{
+            background: #e8b0b0;
+            padding: 3em 0 3em 0;
+            flex: 1 1 10px;
+        }
+
+        main{
+            background: #171616;
+            padding: 3em 0 3em 0;
+            flex: 5 5 250px;
+        }
+
+        .right{
+            background: #f26a6a;
+            padding: 3em 0 3em 0;
+            flex: 1 1 10px;
+        }
+
+        footer{
+            background: #1f1e1f;
+            color: white;
+            padding: 1em 0 1em 0;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .box{
+            width: 300px;
+            border: 15px solid green;
+            padding: 50px;
+            margin: 20px;
+        }
+
+        @media all and (max-width: 1300px) {
+            .main {
+                flex-direction: column;
+            }
+            main{
+                padding: 5em 0 5em 0;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        HEADER
+    </header>
+    <div class="main">
+        <aside class="left">
+            LEFT
+        </aside>
+        <main>
+            MAIN CONTENT
+
+            <div class="box">
+                BOX
+            </div>
+
+        </main>
+        <aside class="right">
+            RIGHT
+        </aside>
+    </div>
+
+    <footer>
+        FOOTER
+    </footer>
+</body>
+
+
+
+</html>

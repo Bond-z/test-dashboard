@@ -1,0 +1,161 @@
+FCP-AWS-AUTODISCOVERY-1 Register AWS FCP Dedicated account to VRA
+FCP-AWS-AUTODISCOVERY-2 Register AWS FCP Dedicated account without any VPC to VRA
+FCP-AZURE-AUTODISCOVERY-1 Register FCP Dedicated account to VRA
+FCP-AZURE-AUTODISCOVERY-2 Register Azure FCP Dedicated account without any VNET to VRA
+SCC-AWS-AUTODISCOVERY-1 Register AWS SCC Connected account to VRA
+SCC-AZURE-AUTODISCOVERY-1 Register Azure SCC Connected account to VRA
+SCC-CIDR-1 Get all free CIDR ranges per region for both AWS/Azure provider
+SCC-AWS-VRA-1 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)
+SCC-AWS-VRA-10 Remove VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type monitor
+SCC-AWS-VRA-11 Remove all VRA TUM (Technical User Management) for HC Service (e.q. mssql,backup)
+SCC-AWS-VRA-2 "Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)Invalid HC service name"
+SCC-AWS-VRA-3 "Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)Invalid role-assignment-type"
+SCC-AWS-VRA-4 "Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)Invalid operation-type"
+SCC-AWS-VRA-5 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type deploy
+SCC-AWS-VRA-6 Remove VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type deploy
+SCC-AWS-VRA-7 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type daytwo
+SCC-AWS-VRA-8 Remove VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type daytwo
+SCC-AWS-VRA-9 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type monitor
+SCC-AZURE-VRA-1 Request VRA TUM (Technical User Management) for HC Service scc_test daytwo rol
+SCC-AZURE-VRA-10 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type daytwo
+SCC-AZURE-VRA-11 Remove VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type daytwo
+SCC-AZURE-VRA-12 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type monitor
+SCC-AZURE-VRA-13 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)
+SCC-AZURE-VRA-14 Remove all VRA TUM (Technical User Management) for HC Service (e.q. mssql,backup)
+SCC-AZURE-VRA-15 Remove VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type monitor
+SCC-AZURE-VRA-2 Request VRA TUM (Technical User Management) for HC Service scc_test deploy rol
+SCC-AZURE-VRA-3 Request VRA TUM (Technical User Management) for HC Service scc_test detach roles rol
+SCC-AZURE-VRA-4 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)
+SCC-AZURE-VRA-5 "Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)Invalid HC service name"
+SCC-AZURE-VRA-6 "Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)Invalid role-assignment-type"
+SCC-AZURE-VRA-7 "Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup)Invalid operation-type"
+SCC-AZURE-VRA-8 Request VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type deploy
+SCC-AZURE-VRA-9 Remove VRA TUM (Technical User Management) for HC Service (e.q. mssql, backup) operation-type deploy
+SCC-AWS-HYBRID-1 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql, backup) with default TTL
+SCC-AWS-HYBRID-2 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql,backup) with custom TTL (in minutes)
+SCC-AWS-HYBRID-3 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql,backup) with custom TTL (in minutes) again
+SCC-AWS-HYBRID-4 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql, backup) with non-existing account-id
+SCC-AWS-HYBRID-5 Request Classic TUM (Technical User Management) for wrong HC Service (e.q. abcd)
+SCC-AWS-HYBRID-6 Remove Classic TUM (Technical User Management) assignments for HC Service (e.q. mssql, backup)
+SCC-AWS-HYBRID-7 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql, backup) with default TTL and verify caching
+SCC-AZURE-HYBRID-1 Request Classic TUM (Technical User Management) for HC Service scc_test test different assignableScop
+SCC-AZURE-HYBRID-2 Request Classic TUM (Technical User Management) for HC Service scc_test test bad subscription scop
+SCC-AZURE-HYBRID-3 Remove Classic TUM (Technical User Management) assignments for HC Service for hybrid-scc_test repo
+SCC-AZURE-HYBRID-4 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql, backup) with default TTL
+SCC-AZURE-HYBRID-5 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql,backup) with custom TTL (in minutes)
+SCC-AZURE-HYBRID-6 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql,backup) with custom TTL (in minutes) again
+SCC-AZURE-HYBRID-7 Request Classic TUM (Technical User Management) for HC Service (e.q. mssql, backup) with non-existing account-id
+SCC-AZURE-HYBRID-8 Request Classic TUM (Technical User Management) for wrong HC Service (e.q. abcd)
+SCC-AZURE-HYBRID-9 Remove Classic TUM (Technical User Management) assignments for HC Service (e.q. mssql, backup)
+AUTHEN-1 Get Bearer Token to call other endpoint
+AUTHEN-2 Get Bearer Token with invalid username/password
+SCC-AZURE-CIDR-1 Check if a given CIDR in provided region is fr
+SCC-AZURE-CIDR-10 Get details for allocated CIDR (subnet)
+SCC-AZURE-CIDR-11 pdate existing list of main CIDR blocks for specific region
+SCC-AZURE-CIDR-2 Add existing CIDR to CIDRAllocated table for your test account and correct region
+SCC-AZURE-CIDR-3 Add a new CIDR to CIDRAllocated table for your test account and wrong region
+SCC-AZURE-CIDR-4 Add a new CIDR to CIDRAllocated table for your test account and correct region
+SCC-AZURE-CIDR-5 Delete existing CIDR in CIDRAllocated table for your test account
+SCC-AZURE-CIDR-6 Delete allocation CIDR for your test account with invalid param
+SCC-AZURE-CIDR-7 Delete not existing CIDR in CIDR Allocated tabl
+SCC-AZURE-CIDR-8 Delete CIDR with different Pool
+SCC-AZURE-CIDR-9 Get CIDR allocations for account
+SCC-AWS-CIDR-1 Check if a given CIDR in provided region is fr
+SCC-AWS-CIDR-10 Get details for allocated CIDR (subnet)
+SCC-AWS-CIDR-11 pdate existing list of main CIDR blocks for specific region
+SCC-AWS-CIDR-2 Add existing CIDR to CIDRAllocated table for your test account and correct region
+SCC-AWS-CIDR-3 Add a new CIDR to CIDRAllocated table for your test account and wrong region
+SCC-AWS-CIDR-4 Add a new CIDR to CIDRAllocated table for your test account and correct region
+SCC-AWS-CIDR-5 Delete existing CIDR in CIDRAllocated table for your test account
+SCC-AWS-CIDR-6 Delete allocation CIDR for your test account with invalid param
+SCC-AWS-CIDR-7 Delete not existing CIDR in CIDR Allocated tabl
+SCC-AWS-CIDR-8 Delete CIDR with different Pool
+SCC-AWS-CIDR-9 Get CIDR allocations for account
+STATUS-1 Get list of steps (records) for provided (valid) request-id
+STATUS-2 Get list of steps (records) for provided (invalid) request-id
+FCP-AZURE-NETWORK-1 Create Azure FCP Network (mandatory)
+FCP-AZURE-NETWORK-2 Get FCP AZure network statu
+FCP-AZURE-NETWORK-3 Verify Network Was Deleted Successful
+FCP-AZURE-NETWORK-4 Create Azure FCP Network (full)
+FCP-AZURE-NETWORK-5 Add additional subnet to the existing account by using the same account-tag nam
+FCP-AZURE-NETWORK-6 Add additional subnet to the existing account with unique cloud-network-nam
+FCP-AZURE-NETWORK-7 Verify CIDRs allocation should be worked properly when create 3 vpc in pararell
+FCP-AZURE-NETWORK-8 Create Azure FCP Network (mandatory) with RG name longer than 35 character
+FCP-AZURE-NETWORK-DELETION-1 "Delete dedicated network in FCP account"
+FCP-AZURE-NETWORK-DELETION-2 "Delete dedicated network in FCP account again"
+FCP-AWS-NETWORK-1 'Get account''s network details'
+FCP-AWS-NETWORK-2 Add mandatory subnets to the existing (crossplane) FCP dedicated account
+FCP-AWS-NETWORK-3 Add all subnets to the existing (crossplane) FCP dedicated account
+FCP-AWS-NETWORK-4 Verify CIDRs allocation should be worked properly when create 3 vpc in pararell
+FCP-AWS-NETWORK-DELETION-1 Delete DedicatedVPC with incorrect virtual network nam
+FCP-AWS-NETWORK-DELETION-7 Delete Network in (Crossplane) FCP (dedicated) account
+FCP-AWS-NETWORK-DELETION-8 Delete Network in (Crossplane) FCP (dedicated) account again
+SCC-AZURE-NETWORK-1 'Get account''s network details'
+SCC-AZURE-NETWORK-2 Add additional subnet to the existing account with existing cloud-network-name.
+SCC-AZURE-NETWORK-3 Create SCC AZURE additional network should be successful
+SCC-AZURE-NETWORK-4 Add additional subnet to the existing account with unique cloud-network-nam
+SCC-AZURE-NETWORK-5 Add additional subnet to the existing account with unique cloud-network-name (Different cloud-region)
+SCC-AZURE-NETWORK-6 "Add additional subnet to the existing account with unique cloud-network-name (dnsname) .Different customer environment."
+SCC-AZURE-NETWORK-7 "Add additional subnet to the existing account with unique cloud-network-name (dnsname). Different resource group."
+SCC-AZURE-NETWORK-8 Verify Network Was Deleted Successful
+SCC-AZURE-NETWORK-DELETION-1 Delete additional network in SCC account
+SCC-AZURE-NETWORK-DELETION-2 "Delete additional network in SCC account again"
+SCC-AWS-NETWORK-1 'Get account''s network details'
+SCC-AWS-NETWORK-2 "Add additional subnet to the existing account.This should correspond with Customer UI / SNOW forms (Advanced = No).Existing cloud-network-name."
+SCC-AWS-NETWORK-3 "Add additional subnet to the existing account.This should correspond with Customer UI / SNOW forms (Advanced = Yes).Unique cloud-network-name."
+SCC-AWS-NETWORK-4 "Add additional subnet to the existing account.This should correspond with Customer UI / SNOW forms (Advanced = Yes).Unique cloud-network-name.Bring Your Own CIDR (BYOC)"
+SCC-AWS-NETWORK-5 "Add additional subnet to the existing account.This should correspond with Customer UI / SNOW forms (Advanced = No).Unique cloud-network-name.Different cloud-region"
+SCC-AWS-NETWORK-DELETION-1 Delete additional VPC with incorrect virtual network nam
+FCP-AZURE-ACCOUNT-1 (Crossplane) FCP (dedicated) account creation should be successful
+FCP-AZURE-ACCOUNT-10 Get Azure account(s) matching with prefix
+FCP-AZURE-ACCOUNT-2 (Crossplane) FCP (dedicated) account creation with exiting account should be failed
+FCP-AZURE-ACCOUNT-3 Get FCP AZURE accounts ID matching with prefix
+FCP-AZURE-ACCOUNT-4 Verify search should not be found if the account is not exiting
+FCP-AZURE-ACCOUNT-5 (Crossplane) FCP (dedicated) account creation with testing validations first (duplicated owners email) should not be successful
+FCP-AZURE-ACCOUNT-6 (Crossplane) FCP (dedicated) account creation with testing validations first (only one owner provided) should not be allowed
+FCP-AZURE-ACCOUNT-7 (Crossplane) FCP (dedicated) account creation should not be allowed if the length of account name is longer than 12 character
+FCP-AZURE-ACCOUNT-8 Get all account creation statu
+FCP-AZURE-ACCOUNT-9 Get all Azure account
+FCP-AZURE-ACCOUNT-DELETE-1 Delete FCP (dedicted) Account By Request ID Should Be Successful
+FCP-AZURE-ACCOUNT-DELETE-2 Verify Account Was Deleted Successful
+FCP-AWS-ACCOUNT-1 Get account with prefix
+FCP-AWS-ACCOUNT-2 Verify search should not be found if the account is not exiting
+FCP-AWS-ACCOUNT-3 (Crossplane) FCP (dedicated) account creation should be successful
+FCP-AWS-ACCOUNT-4 (Crossplane) FCP (dedicated) account with exiting account should be failed
+FCP-AWS-ACCOUNT-5 (Crossplane) FCP (dedicated) account creation with testing validations first (duplicated owners email) should not be successful
+FCP-AWS-ACCOUNT-6 (Crossplane) FCP (dedicated) account creation with testing validations first (only one owner provided) should not be allowed
+FCP-AWS-ACCOUNT-7 (Crossplane) FCP (dedicated) account creation should not be allowed if the length of account name is longer than 15 character
+FCP-AWS-ACCOUNT-8 Get all FCP AWS accounts ID
+FCP-AWS-ACCOUNT-9 Create FCP AWS basic account with non-existing profile nam
+FCP-AWS-ACCOUNT-DELETE-1 Account (Shared) deletion (no restore)
+FCP-AWS-ACCOUNT-DELETE-2 Account (Dedicated) deletion (no restore)
+SCC-AZURE-ACCOUNT-1 Get all Azure account
+SCC-AZURE-ACCOUNT-10 Account Creation without sending any notificaiton on Su
+SCC-AZURE-ACCOUNT-11 "Account Creation without sending any notificaiton on SuccessGlobal CONFIG_FLAG_SEND_EMAIL flag"
+SCC-AZURE-ACCOUNT-12 Verify search should not be found if the account is not exiting
+SCC-AZURE-ACCOUNT-13 Get AZURE accounts Nam
+SCC-AZURE-ACCOUNT-14 "Account Creation with CIDR sizes + CRP AKS Cluster. This corresponds with Customer UI / SNOW forms (Advanced = No)."
+SCC-AZURE-ACCOUNT-2 Get Azure account(s) matching with prefix
+SCC-AZURE-ACCOUNT-3 Get a single Azure account matching with prefix
+SCC-AZURE-ACCOUNT-4 Account Creation with testing validations first (identical owners)
+SCC-AZURE-ACCOUNT-5 Account Creation with testing validations first (only one use provided)
+SCC-AZURE-ACCOUNT-6 Account Creation with non-existing project in vRA
+SCC-AZURE-ACCOUNT-7 Account Creation with CRP AKS cluster
+SCC-AZURE-ACCOUNT-8 Account Creation with existing valu
+SCC-AZURE-ACCOUNT-9 Account Creation with project longer than 50 chars and without CRP AKS
+SCC-AZURE-ACCOUNT-DELETE-1 SCC Basic account deletion (no restore)
+SCC-AZURE-ACCOUNT-DELETE-2 SCC Account connected deletion (no restore)
+SCC-AWS-ACCOUNT-1 Get all AWS account
+SCC-AWS-ACCOUNT-10 Get AWS accounts Nam
+SCC-AWS-ACCOUNT-11 Account creation should not be allowed if the length of account name is longer than 12 character
+SCC-AWS-ACCOUNT-12 "Account Creation with CIDR sizes. This corresponds with Customer UI / SNOW forms (Advanced = No)."
+SCC-AWS-ACCOUNT-2 Get AWS account(s) matching with prefix
+SCC-AWS-ACCOUNT-3 Get a single AWS account matching with prefix
+SCC-AWS-ACCOUNT-4 Account Creation with testing validations first (identical owners)
+SCC-AWS-ACCOUNT-5 Account Creation with testing validations first (only one use provided)
+SCC-AWS-ACCOUNT-6 Account Creation with non-existing project
+SCC-AWS-ACCOUNT-7 Account Creation
+SCC-AWS-ACCOUNT-8 Account Creation with existing valu
+SCC-AWS-ACCOUNT-9 Verify search should not be found if the account is not exiting
+SCC-AWS-ACCOUNT-DELETE-1 Account deletion (no restore)
+SCC-AWS-ACCOUNT-DELETE-2 Account deletion (no restore)
