@@ -1,2 +1,2 @@
 env
-myframework/web/test_result
+myframework/web/test_result/*.xml
