@@ -62,7 +62,7 @@ def index(request):
 
     # get only sccaws result for all cycles
     sccaws = get_sccaws_test_stat()
-    first_array_sccaws_carousel = sccaws[-5]
+    first_array_sccaws_carousel = sccaws[-2]
     filtered_sw_result = [item for item in sccaws if item.get("cycleid") == f"{current_cycle}"]
     sw_p_amt = filtered_sw_result[0]['pass_amt']
     sw_f_amt = filtered_sw_result[0]['fail_amt']
@@ -72,7 +72,7 @@ def index(request):
 
     # get scc azure test result data
     sccazure = get_sccazure_test_stat()
-    first_array_sccaz_carousel = sccazure[-5]
+    first_array_sccaz_carousel = sccazure[-2]
     filtered_sa_result = [item for item in sccazure if item.get("cycleid") == f"{current_cycle}"]
     sa_p_amt = filtered_sa_result[0]['pass_amt']
     sa_f_amt = filtered_sa_result[0]['fail_amt']
@@ -80,7 +80,7 @@ def index(request):
 
     # get only fcpaws result for all cycles
     fcpaws = get_fcpaws_test_stat()
-    first_array_fcpaws_carousel = fcpaws[-5]
+    first_array_fcpaws_carousel = fcpaws[-2]
     filtered_fw_result = [item for item in fcpaws if item.get("cycleid") == f"{current_cycle}"]
     fw_p_amt = filtered_fw_result[0]['pass_amt']
     fw_f_amt = filtered_fw_result[0]['fail_amt']
@@ -89,7 +89,7 @@ def index(request):
 
     # get only fcpazure result for all cycles
     fcpazure = get_fcpaws_test_stat()
-    first_array_fcpaz_carousel = fcpazure[-5]
+    first_array_fcpaz_carousel = fcpazure[-2]
     filtered_fz_result = [item for item in fcpazure if item.get("cycleid") == f"{current_cycle}"]
     fz_p_amt = filtered_fz_result[0]['pass_amt']
     fz_f_amt = filtered_fz_result[0]['fail_amt']
@@ -164,13 +164,6 @@ def index(request):
 
     return render(request,"index.html", data)
 
-
-# def index(request):
-#     data = {
-#         "charts": "charts",
-#         "cycles": "cycles"
-#     }
-#     return render(request, "index.html", data)
 
 def get_sccaws_current_result(cycle):
     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-aws/{}/result/'.format(cycle)
