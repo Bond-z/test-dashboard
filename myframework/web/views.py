@@ -38,7 +38,7 @@ def index(request):
         "cycles": "test2"
     }
 
-    return (request, "index.html", data)
+    return render(request,"index.html", data)
 
 # @csrf_exempt
 # def loginPage(request):
