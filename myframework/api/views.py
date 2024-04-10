@@ -103,6 +103,14 @@ def updateSccAwsTestresult(request,pk):
         serializer.save()
     return Response(serializer.data)
 
+@api_view(['DELETE'])
+def deleteSccAwsTestresult(request,pk):
+    item = SccAwsResult.objects.get(id=pk)
+    serializer = SccAwsResultSerializer(instance=item, data=request.data)
+    if serializer.is_valid():
+        serializer.delete()
+    return Response(serializer.data)
+
 @api_view(['POST'])
 def addSccAzureResult(request):
     serializer = SccAzureResultSerializer(data=request.data)
