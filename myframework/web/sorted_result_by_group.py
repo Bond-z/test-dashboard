@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 import yaml
 import xml.etree.ElementTree as ET
-from views import get_all_cycle
+# from views import get_all_cycle
 
 
 def get_test_amount_of_all_suites():
@@ -15,9 +15,9 @@ def get_test_amount_of_all_suites():
 
     # cycles = get_all_cycle()
     # current_cycle = cycles[-1]
-    current_cycle = 'FCP-C8'
+    current_cycle = 'FCP-C1'
 
-    endpoint = 'http://127.0.0.1:8000/api/testresults/'
+    endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
     response = requests.get(endpoint)
 
     if response.status_code == 200:
@@ -66,7 +66,7 @@ def get_test_amount_of_all_suites():
         response = []
 
 def send_sccaws_result_stat(cycleid, amt_pass, amt_fail, sw_percent_pass):
-    endpoint = "http://127.0.0.1:8000/api/scc-aws-result/"
+    endpoint = "https://web-production-9df4e.up.railway.app/api/scc-aws-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ def send_sccaws_result_stat(cycleid, amt_pass, amt_fail, sw_percent_pass):
     print(response)
 
 def send_sccazure_result_stat(cycleid, amt_pass, amt_fail, sz_percent_pass):
-    endpoint = "http://127.0.0.1:8000/api/scc-azure-result/"
+    endpoint = "https://web-production-9df4e.up.railway.app/api/scc-azure-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -100,7 +100,7 @@ def send_sccazure_result_stat(cycleid, amt_pass, amt_fail, sz_percent_pass):
     print(response)
 
 def send_fcpaws_result_stat(cycleid, amt_pass, amt_fail, fw_percent_pass):
-    endpoint = "http://127.0.0.1:8000/api/fcp-aws-result/"
+    endpoint = "https://web-production-9df4e.up.railway.app/api/fcp-aws-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ def send_fcpaws_result_stat(cycleid, amt_pass, amt_fail, fw_percent_pass):
     print(response)
 
 def send_fcpazure_result_stat(cycleid, amt_pass, amt_fail, fz_percent_pass):
-    endpoint = "http://127.0.0.1:8000/api/fcp-azure-result/"
+    endpoint = "https://web-production-9df4e.up.railway.app/api/fcp-azure-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -135,7 +135,7 @@ def send_fcpazure_result_stat(cycleid, amt_pass, amt_fail, fz_percent_pass):
 
 
 def sum_all_services_in_each_release(cycleid, service_typ, cloud_provider, amt_pass, amt_fail):
-    endpoint = "http://127.0.0.1:8000/api/add-release-testresult/"
+    endpoint = "https://web-production-9df4e.up.railway.app/api/add-release-testresult/"
 
     headers = {
         'Content-Type': 'application/json'
