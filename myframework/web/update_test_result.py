@@ -12,7 +12,7 @@ fcpazure = './test_result/fcp_azure_log.xml'
 xml_paths = [f'{fcpaws}', f'{fcpazure}', f'{sccaws}', f'{sccazure}']
 zephyrid_path = 'test_id.yaml'
 usecase_path = 'test_suite.yaml'
-cycleid = 'FCP-C1'
+cycleid = 'FCP-C3'
 
 def get_result_and_update_testresult(root):
 
@@ -83,7 +83,7 @@ def get_testcases_from_yaml(key):
         print(f"Error reading YAML file: {e}")
 
 def create_test_cycle_with_result(cycleid, zephyr_id, usecase, result):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/add-testresult/"
+    endpoint = "http://127.0.0.1:8000/api/add-testresult/"
 
     headers = {
         'Content-Type': 'application/json'

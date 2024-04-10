@@ -15,9 +15,9 @@ def get_test_amount_of_all_suites():
 
     # cycles = get_all_cycle()
     # current_cycle = cycles[-1]
-    current_cycle = 'FCP-C1'
+    current_cycle = 'FCP-C3'
 
-    endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
+    endpoint = 'http://127.0.0.1:8000/api/testresults/'
     response = requests.get(endpoint)
 
     if response.status_code == 200:
@@ -34,39 +34,41 @@ def get_test_amount_of_all_suites():
         sw_total_testcases = int(sccaws_pass) + int(sccaws_fail)
         sw_percent_pass = (int(sccaws_pass) / sw_total_testcases)*100
 
-        send_sccaws_result_stat(current_cycle, sccaws_pass, sccaws_fail, sw_percent_pass)
-        sum_all_services_in_each_release(current_cycle, "SCC", "AWS", sccaws_pass, sccaws_fail)
-        # print(current_cycle, sccaws_pass, sccaws_fail)
+        # send_sccaws_result_stat(current_cycle, sccaws_pass, sccaws_fail, sw_percent_pass)
+        # sum_all_services_in_each_release(current_cycle, "SCC", "AWS", sccaws_pass, sccaws_fail)
+        print("SCC AWS", current_cycle, sccaws_pass, sccaws_fail, sw_percent_pass)
 
         sccaz_pass = sum(1 for pass_result in sccaz_result if pass_result.get('result') == "PASS")
         sccaz_fail = sum(1 for fail_result in sccaz_result if fail_result.get('result') == "FAIL")
         sz_total_testcases = int(sccaz_pass) + int(sccaz_fail)
-        sz_percent_pass = (int(sccaz_pass) / sz_total_testcases)*100
+        sx_pass_percent = (int(sccaz_pass) / sz_total_testcases)*100
+        sz_percent_pass = int(sx_pass_percent)
         send_sccazure_result_stat(current_cycle, sccaz_pass, sccaz_fail, sz_percent_pass)
         sum_all_services_in_each_release(current_cycle, "SCC", "AZURE", sccaz_pass, sccaz_fail)
-        # print(current_cycle, sccaz_pass, sccaz_fail)
+        print("SCC Azure", current_cycle, sccaz_pass, sccaz_fail, sz_percent_pass)
 
         fcpaws_pass = sum(1 for pass_result in fcpaws_result if pass_result.get('result') == "PASS")
         fcpaws_fail = sum(1 for fail_result in fcpaws_result if fail_result.get('result') == "FAIL")
         fw_total_testcases = int(fcpaws_pass) + int(fcpaws_fail)
         fw_percent_pass = (int(fcpaws_pass) / fw_total_testcases)*100
-        send_fcpaws_result_stat(current_cycle, fcpaws_pass, fcpaws_fail, fw_percent_pass)
-        sum_all_services_in_each_release(current_cycle, "FCP", "AWS", fcpaws_pass, fcpaws_fail)
-        # print(current_cycle, fcpaws_pass, fcpaws_fail)
+        # send_fcpaws_result_stat(current_cycle, fcpaws_pass, fcpaws_fail, fw_percent_pass)
+        # sum_all_services_in_each_release(current_cycle, "FCP", "AWS", fcpaws_pass, fcpaws_fail)
+        print("FCP AWS", current_cycle, fcpaws_pass, fcpaws_fail, fw_percent_pass)
 
         fcpaz_pass = sum(1 for pass_result in fcpaz_result if pass_result.get('result') == "PASS")
         fcpaz_fail = sum(1 for fail_result in fcpaz_result if fail_result.get('result') == "FAIL")
         fz_total_testcases = int(fcpaz_pass) + int(fcpaz_fail)
-        fz_percent_pass = (int(fcpaz_pass) / fz_total_testcases)*100
+        fz_pass_percent = (int(fcpaz_pass) / fz_total_testcases)*100
+        fz_percent_pass = int(fz_pass_percent)
         send_fcpazure_result_stat(current_cycle, fcpaz_pass, fcpaz_fail, fz_percent_pass)
         sum_all_services_in_each_release(current_cycle, "FCP", "AZURE", fcpaz_pass, fcpaz_fail)
-        # print(current_cycle, fcpaz_pass, fcpaz_fail)
+        print("FCP Azure", current_cycle, fcpaz_pass, fcpaz_fail, fz_percent_pass)
 
     else:
         response = []
 
 def send_sccaws_result_stat(cycleid, amt_pass, amt_fail, sw_percent_pass):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/scc-aws-result/"
+    endpoint = "http://127.0.0.1:8000/api/scc-aws-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -83,7 +85,7 @@ def send_sccaws_result_stat(cycleid, amt_pass, amt_fail, sw_percent_pass):
     print(response)
 
 def send_sccazure_result_stat(cycleid, amt_pass, amt_fail, sz_percent_pass):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/scc-azure-result/"
+    endpoint = "http://127.0.0.1:8000/api/scc-azure-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -100,7 +102,7 @@ def send_sccazure_result_stat(cycleid, amt_pass, amt_fail, sz_percent_pass):
     print(response)
 
 def send_fcpaws_result_stat(cycleid, amt_pass, amt_fail, fw_percent_pass):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/fcp-aws-result/"
+    endpoint = "http://127.0.0.1:8000/api/fcp-aws-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -117,7 +119,7 @@ def send_fcpaws_result_stat(cycleid, amt_pass, amt_fail, fw_percent_pass):
     print(response)
 
 def send_fcpazure_result_stat(cycleid, amt_pass, amt_fail, fz_percent_pass):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/fcp-azure-result/"
+    endpoint = "http://127.0.0.1:8000/api/fcp-azure-result/"
 
     headers = {
         'Content-Type': 'application/json'
@@ -135,7 +137,7 @@ def send_fcpazure_result_stat(cycleid, amt_pass, amt_fail, fz_percent_pass):
 
 
 def sum_all_services_in_each_release(cycleid, service_typ, cloud_provider, amt_pass, amt_fail):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/add-release-testresult/"
+    endpoint = "http://127.0.0.1:8000/api/add-release-testresult/"
 
     headers = {
         'Content-Type': 'application/json'
