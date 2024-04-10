@@ -52,8 +52,8 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-@csrf_exempt
-@login_required(login_url='/login')
+# @csrf_exempt
+# @login_required(login_url='/login')
 def index(request):
     
     cycles = get_all_cycle()
