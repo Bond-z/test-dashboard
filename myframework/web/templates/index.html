@@ -1,296 +1,123 @@
-{% extends "base.html" %}
-
-{% block title %}
-    <title> TEST FRAMEWORK </title>
-{% endblock %}
-
-     
-
-{% block content %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title style="justify-content: center;">Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <title>Layout Template</title>
     <style>
-
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
         .container {
             display: flex;
+            min-height: 100vh;
+            flex-direction: column;
         }
-        .row {
-            align-items: center;
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .menu {
+            width: 10%;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .main {
             width: 90%;
-            max-width: 1100px; /* Adjust the maximum width as needed */
-            padding-left: 5px;
-            /* background-color: #b2b1b0; */
-            padding: 1em 0 2em 0;
+            display: flex;
+            padding: 20px;
         }
+
         .card-container {
             display: flex;
             flex-wrap: wrap;
-
+            margin-bottom: 20px;
         }
+
         .card {
             background-color: #ffffff;
             border: 1px solid #cccccc;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-right: 10px;
-            margin-bottom: 10px;
-            padding: 5px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
         }
+
         .card.full {
-            width: 98.5%;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 1em 0 1em 0;
-        }
-        .card.half {
-            width: 69%;
-            padding: 1em 0 1em 0;
-            height: 600px;
-        }
-        .card.quarter {
-            width: 28%;
-            padding: 2em 0 2em 0;
-            height: 600px;
-            margin-left: 1%;
-        }
-
-        .barchart {
-            width: 50px; /* Example width */
-            height: 20px; /* Example height */
-            background-color: #f0f0f0; /* Just for visualization */
-            margin: 5px; /* Adjust as needed */
-        }
-
-        .awscard {
-            /* width: calc(25% - 10px); Adjust for card spacing */
-            font-size: 20px;
-            border: 1px solid #cbcac9;
-            border-radius: 1px;
-            margin-left: 15%;
-            margin-right: 15%;
-            background-color: #ec9843;
-            color: black;
-            min-height: 30px;
-            line-height: 10px;
-            height: 110px;
-        }
-
-        .azurecard {
-            /* width: calc(25% - 10px); Adjust for card spacing */
-            font-size: 20px;
-            border: 1px solid #8a8b8d;
-            background-color: #3f7bf3;
-            border-radius: 1px;
-            margin-left: 15%;
-            margin-right: 15%;
-            min-height: 30px;
-            line-height: 10px;
-            height: 110px;
-        }
-
-        .row {
-            align-items: center;
-            width: 90%;
-            max-width: 1100px; /* Adjust the maximum width as needed */
-            padding-left: 5px;
-            /* background-color: #b2b1b0; */
-            padding: 1em 0 2em 0;
-        }
-
-        .fail-button {
-            background-color: red;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .table {
-            font-size: 16px;
-            text-align: left;
             width: 100%;
-            padding: 1em 0 1em 0;
-            margin-left: 40px;
         }
 
-        .pass {
-            color: green;
+        .card.half {
+            width: 70%;
+        }
 
-            }
+        .card.quarter {
+            width: 30%;
+        }
 
-        .fail {
-            color: red;
-
+        footer {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin-top: auto;
         }
     </style>
-
 </head>
-
 <body>
 
+<div class="container">
 
-    <!-- Main content goes here -->
-    <div class="card-container">
-        <div class="card half" >
-            <h2>Test Automation Dashboard</h2>
-            <div>
-                {% if charts %}
-                    <div style="align-self: center;">
-                        {{ charts|safe }}
-                    </div>
-                {% endif %}
-            </div>
+    <nav class="navbar">
+        <h2>Navigation Bar</h2>
+    </nav>
+    <div class="main">
+        <div class="menu">
+            <!-- Left menu content goes here -->
+            <ul>
+                <li>Menu Item 1</li>
+                <li>Menu Item 2</li>
+                <li>Menu Item 3</li>
+            </ul>
         </div>
-        <div class="card quarter" style="background: #ecefecf9;">
-            <h2>Test result group by types</h2>
-  
-            <div class="card awscard">
-                <h3>SCCAWS</h3>
-                <p style="color: rgb(12, 149, 7);">PASS: {{sw_p_amt}}</p>
-                <p style="color: rgb(157, 35, 8);">FAIL: {{sw_f_amt}}</p>
+        <div class="content">
+            <!-- Main content goes here -->
+            <div class="card-container">
+                <div class="card half">
+                    <h2>Left Container</h2>
+                    <p>This container occupies 70% width.</p>
+                </div>
+                <div class="card quarter">
+                    <h2>Right Container</h2>
+                    <p>This container occupies 30% width.</p>
+                </div>
             </div>
-            <div class="card azurecard">
-                <h3>SCCAZURE</h3>
-                <p style="color: rgb(22, 238, 15);">PASS: {{sa_p_amt}}</p>
-                <p style="color: rgb(157, 35, 8);">FAIL: {{sa_f_amt}}</p>
-            </div>
-            <div class="card awscard">
-                <h3>FCPAWS</h3>
-                <p style="color: rgb(12, 149, 7);">PASS: {{fw_p_amt}}</p>
-                <p style="color: rgb(157, 35, 8);">FAIL: {{fw_f_amt}}</p>
-            </div>
-            <div class="card azurecard">
-                <h3>FCPAZURE</h3>
-                <p style="color: rgb(22, 238, 15);">PASS: {{fz_p_amt}}</p>
-                <p style="color: rgb(157, 35, 8);">FAIL: {{fz_f_amt}}</p>
-            </div>
-          
-        </div>
-    </div>
-    
-    <div class="card-container">
-        <div class="card full">
-            <h2>Fail Testcases</h2>
-            <div class="table">
-                {% if fail_testcases %}
-
-                    <table class="table table-dark" style="width:90%">
-                        <thead>
-                        <tr style="width:100%">
-                            <th scope="col">Test ID</th>
-                            <th scope="col">Test Case Name</th>
-                            <th scope="col">Test Result</th>
-                
-                        </tr>
-                        </thead>
-
-                        <tbody>
-
-                            {% for testresult in fail_testcases %}
-                                <tr class="table-light" style="width:90%";>
-                                <td>{{testresult.testcaseid}}</td>
-                                <td>{{testresult.usecase}}</td>
-                                <td style="align-items: right;" class="{% if testresult.result == 'FAIL' %} fail {% endif %}" > <button class="fail-button">{{ testresult.result }}</button> </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                {% endif %}
-                
+            <div class="card-container">
+                <div class="card full">
+                    <h2>Full Width Container</h2>
+                    
+                    <p>This container occupies 100% width.</p>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card-container">
-        <div class="card full">
-            <h3> Release tag v1.14.1</h3>
-            <div style="text-align: left";>
-                <li> FCP-18189 Extend Azure regions with Switzerland West (WS1) by @extern-gavenda-jindrich in #1314 </li>
-                <li> FCP-18189 Add AZURE_REGION_OWNER_IDs for Switzerland West (WS1) by @extern-gavenda-jindrich in #1315 </li>
-                <li> FCP-18141 New aztec-cloudtribe-cloudgovernance-assumerole role added by @juraj-blaho in #1320 </li>
-                <li> FCP-16349 Add test cases for AVC account/network peering by @extern-gavenda-jindrich in #1316 </li>
-                <li> FCP-16660 Improve Account Family determination from context by @extern-gavenda-jindrich in #1323 </li>
-                <li> remove yamlfix from pipfile by @extern-kwarta-michal in #1292 </li>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-container">
-        <div class="card full" style="background: #5d5c5c;">
-            <h3> History test result </h3>
-            <div style="align-self: center;">
-                {{ barchart|safe }}
-            </div>
-
-        </div>
-    </div>
-
-    <div class="card-container">
-        <div class="card full" style="background: #3d3d3d;">
-            {% if fcpazure %}
-            <div style="margin-left: 10%;">
-                <table class="table table-dark" style="width:90%">
-                    <thead>
-                        <h2 style="text-align: center; color: #ffffff;" > SCC API Test Results Dashboard </h2> <br>
-                    <tr>
-                        <th scope="col">Cycle</th>
-                        <th scope="col" colspan="2" style="text-align: center;"> SCCAWS <br> Pass  /  Fail </th>
-                        <th scope="col" colspan="2" style="text-align: center;"> SCCAZURE <br> Pass  /  Fail </th>
-                        <th scope="col" colspan="2" style="text-align: center;"> FCPAWS <br> Pass  /  Fail </th>
-                        <th scope="col" colspan="2" style="text-align: center;"> FCPAZURE <br> Pass  /  Fail </th>
-                    </tr>
-    
-                    </thead>
-    
-                    <tbody>
-    
-                        {% for sw, sz, fw, fz  in zipped_data  %}
-                            <tr>
-                            <td>{{sw.cycleid}}</td>
-                            <td> <div class="{% if sw.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{sw.pass_amt}} </div>  </td>
-                            <td> <div class="{% if sw.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{sw.fail_amt}}</div> </td>
-                            <td> <div class="{% if sz.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{sz.pass_amt}} </div> </td>
-                            <td> <div class="{% if sz.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{sz.fail_amt}}</div> </td>
-                            <td> <div class="{% if fw.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{fw.pass_amt}} </div> </td> 
-                            <td> <div class="{% if fw.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{fw.fail_amt}}</div> </td>
-                            <td> <div class="{% if fz.pass_amt %} pass {% endif %}" style="text-align: right;"> PASS: {{fz.pass_amt}} </div> </td> 
-                            <td> <div class="{% if fz.fail_amt %} fail {% endif %}" style="text-align: left;">FAIL:{{fz.fail_amt}}</div> </td>
-                            </tr>
-                        {% endfor %}
-                        
-                    </tbody>
-                </table>
-            </div>
-            
-            {% endif %}
-        </div>
-
-    </div>
-        
-
-
-</div> 
-
-            
+    <footer>
+        <p>Footer</p>
+    </footer>
+</div>
 
 </body>
-
 </html>
-
-{% endblock %}
-
-
-
-
-    
-   
-        
-    
