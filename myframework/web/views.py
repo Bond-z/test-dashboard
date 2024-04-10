@@ -18,6 +18,7 @@ import pandas as pd
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
 # from charts import get_sccaws_test_stat, get_sccazure_test_stat, get_fcpaws_test_stat, get_fcpazure_test_stat
 
 
@@ -29,6 +30,7 @@ current_cycle = "FCP-C7"
 
 api_endpoint = "https://web-production-9df4e.up.railway.app/api/"
 
+@csrf_exempt
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
