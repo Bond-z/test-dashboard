@@ -121,10 +121,10 @@ def index(request):
     fcpazure = fcpazure_stat[1:]
 
 
-    sccaws_latest_four = sccaws[-4:]
-    sccaz_latest_four = sccazure[-4:]
-    fcpaws_latest_four = fcpaws[-4:]
-    fcpaz_latest_four = fcpazure[-4:]
+    sccaws_latest_four = sccaws[-2:]
+    sccaz_latest_four = sccazure[-2:]
+    fcpaws_latest_four = fcpaws[-2:]
+    fcpaz_latest_four = fcpazure[-2:]
 
     zipped_data_carousel = zip(sccaws_latest_four, sccaz_latest_four, fcpaws_latest_four, fcpaz_latest_four)
     zipped_data_table_stat = zip(sccaws_stat, sccazure_stat, fcpaws_stat, fcpazure_stat)

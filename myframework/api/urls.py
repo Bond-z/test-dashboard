@@ -9,6 +9,7 @@ urlpatterns = [
     path('add-testcase/', views.addTestcases),
     path('update-testcase/<int:pk>/', views.updateTestcases),
     path('add-testresult/', views.addTestresult),
+    path('update-testresult/', views.updateTestresult),
     path('scc-aws-result/', views.addSccAwsResult),
     path('update-scc-aws-result/<str:pk>/', views.updateSccAwsTestresult),
     path('scc-azure-result/', views.addSccAzureResult),
