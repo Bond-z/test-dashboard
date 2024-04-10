@@ -33,7 +33,11 @@ current_cycle = "FCP-C7"
 api_endpoint = "https://web-production-9df4e.up.railway.app/api/"
 
 def index(request):
-    data = "data test"
+    data = {
+        "charts": "test",
+        "cycles": "test2"
+    }
+
     return (request, "index.html", data)
 
 # @csrf_exempt
