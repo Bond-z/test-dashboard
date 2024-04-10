@@ -19,6 +19,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+
 # from charts import get_sccaws_test_stat, get_sccazure_test_stat, get_fcpaws_test_stat, get_fcpazure_test_stat
 
 
@@ -50,6 +52,7 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+@csrf_exempt
 @login_required(login_url='/login')
 def index(request):
     
@@ -482,6 +485,7 @@ def get_last_four_sccazure_result():
     return sccazure_latest_four
 
 @login_required(login_url='/login')
+@csrf_exempt
 def get_testresult_by_cycleid(request, cycle_id):
     cycle = get_all_cycle()
     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
