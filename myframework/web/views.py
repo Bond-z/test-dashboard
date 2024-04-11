@@ -6,6 +6,7 @@ from subprocess import run, PIPE
 import subprocess
 import uuid
 import os
+import requests
 from dotenv import load_dotenv
 import yaml
 import xml.etree.ElementTree as ET
@@ -38,6 +39,9 @@ def index(request):
     cycles = {
         "cycles": all_cycles
     }
+    # data = {
+    #     "data": "test poc"
+    # }
 
     return render(request,"index.html", cycles)
 
@@ -717,12 +721,12 @@ def get_all_cycle():
     
 
 
-# if __name__ == '__main__':
-# #     create_testcases()
-# #     update_testcases()
+if __name__ == '__main__':
+#     create_testcases()
+#     update_testcases()
 
-#     cycles = get_all_cycle()
-#     print(cycles)
+    cycles = get_all_cycle()
+    print(cycles)
 
 
 

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cr(^u!*=xu5e!(x4*e_w*r0i&^-zcr75v!#enzw0dddgl*!206'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["web-production-9df4e.up.railway.app"]
+ALLOWED_HOSTS = ["web-production-9df4e.up.railway.app", "127.0.0.1"]
 
 
 # Application definition
@@ -47,12 +47,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
 ]
 
@@ -125,12 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/')
+    BASE_DIR / 'static'
 ]
 
 # Default primary key field type
