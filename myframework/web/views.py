@@ -231,23 +231,23 @@ def index(request):
 #         testcases = []
 #     return render(request, 'testcases.html', {'testcases':testcases})
 
-def get_all_cycle():
+# def get_all_cycle():
 
-    endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
-    response = requests.get(endpoint)
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
+#     response = requests.get(endpoint)
 
-    if response.status_code == 200:
-        cycle_list = response.json()
-        unique_cycleids = set(item['cycleid'] for item in cycle_list)
-        unique_cycleids_list = list(unique_cycleids)
-        sorted_low_to_high = sorted(unique_cycleids_list)
-        # qty = len(unique_cycleids_list)
-        # print(qty)
-        # print(unique_cycleids_list)
+#     if response.status_code == 200:
+#         cycle_list = response.json()
+#         unique_cycleids = set(item['cycleid'] for item in cycle_list)
+#         unique_cycleids_list = list(unique_cycleids)
+#         sorted_low_to_high = sorted(unique_cycleids_list)
+#         # qty = len(unique_cycleids_list)
+#         # print(qty)
+#         # print(unique_cycleids_list)
 
-    else:
-        cycle_list = []
-    return sorted_low_to_high    #render(request, 'dashboard.html', unique_cycleids_list)
+#     else:
+#         cycle_list = []
+#     return sorted_low_to_high    #render(request, 'dashboard.html', unique_cycleids_list)
         
 # def get_test_result(request):
 #     cycle = get_all_cycle()
