@@ -87,11 +87,14 @@
     <div class="main">
         <div class="menu">
             <!-- Left menu content goes here -->
-            <ul>
-                <li>Menu Item 1</li>
-                <li>Menu Item 2</li>
-                <li>Menu Item 3</li>
-            </ul>
+            {% if cycles %}
+                    {% for cycle in cycles %}
+                    <ul>
+                        <li> <a href="/{{cycle}}" >{{ cycle }}</a> </li>
+                    </ul>
+                        
+                    {% endfor %}
+                {% endif %}
         </div>
         <div class="content">
             <!-- Main content goes here -->
