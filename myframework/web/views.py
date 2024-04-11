@@ -34,7 +34,7 @@ current_cycle = "FCP-C7"
 api_endpoint = "https://web-production-9df4e.up.railway.app/api/"
 
 def index(request):
-    all_cycles = get_all_cycle()
+    # all_cycles = get_all_cycle()
 
     # cycles = {
     #     "cycles": all_cycles
