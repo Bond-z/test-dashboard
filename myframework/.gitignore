@@ -1,2 +1,8 @@
+#database
+.sqlite3
+
+#Byte-complied
+__pycache__/
+
 env
 myframework/web/test_result/*.xml
