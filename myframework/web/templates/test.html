@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Template</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .menu {
+            width: 10%;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .main {
+            width: 90%;
+            display: flex;
+            padding: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card.full {
+            width: 100%;
+        }
+
+        .card.half {
+            width: 70%;
+        }
+
+        .card.quarter {
+            width: 30%;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <nav class="navbar">
+        <h2>Navigation Bar</h2>
+    </nav>
+    <div class="main">
+        <div class="menu">
+            <!-- Left menu content goes here -->
+            {% if cycles %}
+                    {% for cycle in cycles %}
+                    <ul>
+                        <li> <a href="/{{cycle}}" >{{ cycle }}</a> </li>
+                    </ul>
+                        
+                    {% endfor %}
+            {% endif %}
+                <!-- <ul>
+                    <li> {{data}} </li>
+                    <li> Link2 </li>
+                    <li> Link3 </li>
+                </ul> -->
+        </div>
+        <div class="content">
+            <!-- Main content goes here -->
+            <div class="card-container">
+                <div class="card half">
+                    <h2>Left Container</h2>
+                    <p>This container occupies 70% width.</p>
+                </div>
+                <div class="card quarter">
+                    <h2>Right Container</h2>
+                    <p>This container occupies 30% width.</p>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card full">
+                    <h2>Full Width Container</h2>
+                    
+                    <p>This container occupies 100% width.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Footer</p>
+    </footer>
+</div>
+
+</body>
+</html>

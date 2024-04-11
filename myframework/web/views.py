@@ -36,14 +36,14 @@ api_endpoint = "https://web-production-9df4e.up.railway.app/api/"
 def index(request):
     all_cycles = get_all_cycle()
 
-    cycles = {
-        "cycles": all_cycles
-    }
-    # data = {
-    #     "data": "test poc"
+    # cycles = {
+    #     "cycles": all_cycles
     # }
+    data = {
+        "data": "test poc"
+    }
 
-    return render(request,"index.html", cycles)
+    return render(request,"index.html", data)
 
 # @csrf_exempt
 # def loginPage(request):
