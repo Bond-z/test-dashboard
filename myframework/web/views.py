@@ -31,19 +31,19 @@ from django.http import HttpResponse
 
 current_cycle = "FCP-C7"
 
-api_endpoint = "http://0.0.0.0:5000/api/"
+api_endpoint = "https://web-production-9df4e.up.railway.app/api/"
 
 def index(request):
-    all_cycles = get_all_cycle()
+    # all_cycles = get_all_cycle()
 
-    cycles = {
-        "cycles": all_cycles
-    }
-    # data = {
-    #     "data": "test poc"
+    # cycles = {
+    #     "cycles": all_cycles
     # }
+    data = {
+        "data": "test poc"
+    }
 
-    return render(request,"index.html", cycles)
+    return render(request,"index.html", data)
 
 # @csrf_exempt
 # def loginPage(request):
@@ -144,7 +144,7 @@ def index(request):
 
 
 
-#     endpoint = 'http://0.0.0.0:5000/api/testresults/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
 #     response = requests.get(endpoint)
 
 #     if response.status_code == 200:
@@ -182,7 +182,7 @@ def index(request):
 
 
 # def get_sccaws_current_result(cycle):
-#     endpoint = 'http://0.0.0.0:5000/api/get-scc-aws/{}/result/'.format(cycle)
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-aws/{}/result/'.format(cycle)
 #     response = requests.get(endpoint)
 #     cycle = response.json()
 #     sw_p_amt = cycle[0]['pass_amt']
@@ -193,19 +193,19 @@ def index(request):
 #     return sw_p_amt, sw_f_amt, sw_percent_pass
 
 # def get_sccaz_current_result(cycle):
-#     endpoint = 'http://0.0.0.0:5000/api/get-scc-azure/{}/result/'.format(cycle)
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-azure/{}/result/'.format(cycle)
 #     response = requests.get(endpoint)
 #     current_cycle = response.json()
 #     return current_cycle
 
 # def get_fcpaws_current_result(cycle):
-#     endpoint = 'http://0.0.0.0:5000/api/get-fcp-aws/{}/result/'.format(cycle)
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-fcp-aws/{}/result/'.format(cycle)
 #     response = requests.get(endpoint)
 #     current_cycle = response.json()
 #     return current_cycle
 
 # def get_fcpaz_current_result(cycle):
-#     endpoint = 'http://0.0.0.0:5000/api/get-fcp-azure/{}/result/'.format(cycle)
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-fcp-azure/{}/result/'.format(cycle)
 #     response = requests.get(endpoint)
 #     current_cycle = response.json()
 #     return current_cycle
@@ -222,7 +222,7 @@ def index(request):
 #     return chart_html
 
 # def get_all_testcases(request):
-#     endpoint = 'http://0.0.0.0:5000/api/testcases/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testcases/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         testcases = response.json()
@@ -231,29 +231,29 @@ def index(request):
 #         testcases = []
 #     return render(request, 'testcases.html', {'testcases':testcases})
 
-def get_all_cycle():
+# def get_all_cycle():
 
-    endpoint = 'http://0.0.0.0:5000/api/testresults/'
-    response = requests.get(endpoint, verify=False)
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
+#     response = requests.get(endpoint, verify=False)
 
-    if response.status_code == 200:
-        cycle_list = response.json()
-        unique_cycleids = set(item['cycleid'] for item in cycle_list)
-        unique_cycleids_list = list(unique_cycleids)
-        sorted_low_to_high = sorted(unique_cycleids_list)
-        # qty = len(unique_cycleids_list)
-        # print(qty)
-        # print(unique_cycleids_list)
+#     if response.status_code == 200:
+#         cycle_list = response.json()
+#         unique_cycleids = set(item['cycleid'] for item in cycle_list)
+#         unique_cycleids_list = list(unique_cycleids)
+#         sorted_low_to_high = sorted(unique_cycleids_list)
+#         # qty = len(unique_cycleids_list)
+#         # print(qty)
+#         # print(unique_cycleids_list)
 
-    else:
-        cycle_list = []
-    return sorted_low_to_high    #render(request, 'dashboard.html', unique_cycleids_list)
+#     else:
+#         cycle_list = []
+#     return sorted_low_to_high    #render(request, 'dashboard.html', unique_cycleids_list)
         
 # def get_test_result(request):
 #     cycle = get_all_cycle()
 #     current_cycle = cycle[-1]
 #     # cycle_id = "FCP-C1"
-#     endpoint = 'http://0.0.0.0:5000/api/testresults/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
 #     response = requests.get(endpoint)
 
 #     if response.status_code == 200:
@@ -324,7 +324,7 @@ def get_all_cycle():
 #     current_cycle = cycle[-1]
 
 #     # cycle_id = "FCP-C1"
-#     endpoint = 'http://0.0.0.0:5000/api/testresults/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         testresults = response.json()
@@ -374,7 +374,7 @@ def get_all_cycle():
 
 # def sum_testresult_for_each_release():
 
-#     endpoint = 'http://0.0.0.0:5000/api/get-release-testresult/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-release-testresult/'
 #     response = requests.get(endpoint)
 #     data = response.json()
 #     print(data)
@@ -389,7 +389,7 @@ def get_all_cycle():
 #         organized_data[cycle_id].append(item)
 
 # def get_sccaws_test_stat():
-#     endpoint = 'http://0.0.0.0:5000/api/get-scc-aws-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-aws-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         sccaws_stat = response.json()
@@ -401,7 +401,7 @@ def get_all_cycle():
 #     return sccaws_stat
 
 # def get_sccazure_test_stat():
-#     endpoint = 'http://0.0.0.0:5000/api/get-scc-azure-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-azure-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         sccazure_stat = response.json()
@@ -411,7 +411,7 @@ def get_all_cycle():
 #     return sccazure_stat
 
 # def get_fcpaws_test_stat():
-#     endpoint = 'http://0.0.0.0:5000/api/get-fcp-aws-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-fcp-aws-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         fcpaws_stat = response.json()
@@ -421,7 +421,7 @@ def get_all_cycle():
 #     return fcpaws_stat
 
 # def get_fcpazure_test_stat():
-#     endpoint = 'http://0.0.0.0:5000/api/get-fcp-azure-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-fcp-azure-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         fcpazure_stat = response.json()
@@ -432,7 +432,7 @@ def get_all_cycle():
 
 # #Get all latest four cycles
 # def get_last_four_fcpazure_result():
-#     endpoint = 'http://0.0.0.0:5000/api/get-fcp-azure-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-fcp-azure-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         fcpazure_stat = response.json()
@@ -448,7 +448,7 @@ def get_all_cycle():
 #     return fcpazure_latest_four
 
 # def get_last_four_fcpaws_result():
-#     endpoint = 'http://0.0.0.0:5000/api/get-fcp-aws-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-fcp-aws-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         fcpaws_stat = response.json()
@@ -464,7 +464,7 @@ def get_all_cycle():
 #     return fcpaws_latest_four
 
 # def get_last_four_sccaws_result():
-#     # endpoint = 'http://0.0.0.0:5000/api/get-scc-aws-result/'
+#     # endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-aws-result/'
 #     # response = requests.get(endpoint)
 #     response = get_sccaws_test_stat()
 #     if response.status_code == 200:
@@ -482,7 +482,7 @@ def get_all_cycle():
 #     return sccaws_latest_four
 
 # def get_last_four_sccazure_result():
-#     endpoint = 'http://0.0.0.0:5000/api/get-scc-azure-result/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-scc-azure-result/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         sccazure_stat = response.json()
@@ -501,7 +501,7 @@ def get_all_cycle():
 # # @csrf_exempt
 # def get_testresult_by_cycleid(request, cycle_id):
 #     cycle = get_all_cycle()
-#     endpoint = 'http://0.0.0.0:5000/api/testresults/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         testresults = response.json()
@@ -576,7 +576,7 @@ def get_all_cycle():
 #     return render(request, 'cycleid.html', result)
 
 # def get_release_version(cycle_id):
-#     endpoint = 'http://0.0.0.0:5000/api/get-release-tag/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/get-release-tag/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         version = response.json()
@@ -660,7 +660,7 @@ def get_all_cycle():
 
 # def get_cycleid_testresult(cycle_id):
 
-#     endpoint = 'http://0.0.0.0:5000/api/testresults/'
+#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
 #     response = requests.get(endpoint)
 #     if response.status_code == 200:
 #         testresults = response.json()
@@ -682,7 +682,7 @@ def get_all_cycle():
 
 # #Function: send test cases to 
 # def create_testcases(testid, usecase):
-#     endpoint = "http://0.0.0.0:5000/api/add-testcase/"
+#     endpoint = "https://web-production-9df4e.up.railway.app/api/add-testcase/"
 
 
 #     headers = {
@@ -699,7 +699,7 @@ def get_all_cycle():
 
 # #Edit test case
 # def update_testcases(id, testid, usecase):
-#     endpoint = "http://0.0.0.0:5000/api/update-testcase/f'{id}'"
+#     endpoint = "https://web-production-9df4e.up.railway.app/api/update-testcase/f'{id}'"
 
 #     headers = {
 #         'Content-Type': 'application/json'
