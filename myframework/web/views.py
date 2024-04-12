@@ -32,18 +32,21 @@ from django.http import HttpResponse
 current_cycle = "FCP-C7"
 
 api_endpoint = "https://web-production-9df4e.up.railway.app/api/"
-
-def index(request):
-    # all_cycles = get_all_cycle()
-
-    # cycles = {
-    #     "cycles": all_cycles
-    # }
-    data = {
-        "data": "test poc"
+headers = {
+        'Content-Type': 'application/json'
     }
 
-    return render(request,"index.html", data)
+def index(request):
+    all_cycles = get_all_cycle()
+
+    cycles = {
+        "cycles": all_cycles
+    }
+    # data = {
+    #     "data": "test poc"
+    # }
+
+    return render(request,"index.html", cycles)
 
 # @csrf_exempt
 # def loginPage(request):
@@ -231,23 +234,23 @@ def index(request):
 #         testcases = []
 #     return render(request, 'testcases.html', {'testcases':testcases})
 
-# def get_all_cycle():
+def get_all_cycle():
 
-#     endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
-#     response = requests.get(endpoint, verify=False)
+    endpoint = 'https://web-production-9df4e.up.railway.app/api/testresults/'
+    response = requests.get(endpoint, headers=headers, verify=False)
 
-#     if response.status_code == 200:
-#         cycle_list = response.json()
-#         unique_cycleids = set(item['cycleid'] for item in cycle_list)
-#         unique_cycleids_list = list(unique_cycleids)
-#         sorted_low_to_high = sorted(unique_cycleids_list)
-#         # qty = len(unique_cycleids_list)
-#         # print(qty)
-#         # print(unique_cycleids_list)
+    if response.status_code == 200:
+        cycle_list = response.json()
+        unique_cycleids = set(item['cycleid'] for item in cycle_list)
+        unique_cycleids_list = list(unique_cycleids)
+        sorted_low_to_high = sorted(unique_cycleids_list)
+        # qty = len(unique_cycleids_list)
+        # print(qty)
+        # print(unique_cycleids_list)
 
-#     else:
-#         cycle_list = []
-#     return sorted_low_to_high    #render(request, 'dashboard.html', unique_cycleids_list)
+    else:
+        cycle_list = []
+    return sorted_low_to_high    #render(request, 'dashboard.html', unique_cycleids_list)
         
 # def get_test_result(request):
 #     cycle = get_all_cycle()
@@ -721,12 +724,12 @@ def index(request):
     
 
 
-if __name__ == '__main__':
-#     create_testcases()
-#     update_testcases()
+# if __name__ == '__main__':
+# #     create_testcases()
+# #     update_testcases()
 
-    cycles = get_all_cycle()
-    print(cycles)
+#     cycles = get_all_cycle()
+#     print(cycles)
 
 
 
