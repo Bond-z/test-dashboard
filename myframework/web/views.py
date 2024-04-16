@@ -69,7 +69,7 @@ def logoutUser(request):
     return redirect('login')
 
 # @csrf_exempt
-# @login_required(login_url='/login')
+@login_required(login_url='/login')
 def index(request):
     
     cycles = get_all_cycle()
@@ -500,7 +500,7 @@ def get_last_four_sccazure_result():
         sccazure_stat = []
     return sccazure_latest_four
 
-# @login_required(login_url='/login')
+@login_required(login_url='/login')
 # @csrf_exempt
 def get_testresult_by_cycleid(request, cycle_id):
     cycle = get_all_cycle()
