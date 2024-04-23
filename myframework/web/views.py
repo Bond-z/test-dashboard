@@ -700,21 +700,7 @@ def create_testcases(testid, usecase):
     response = requests.post(endpoint, headers=headers, json=payload)
     print(response)
 
-#Edit test case
-def update_testcases(id, testid, usecase):
-    endpoint = "https://web-production-9df4e.up.railway.app/api/update-testcase/f'{id}'"
 
-    headers = {
-        'Content-Type': 'application/json'
-    }
-
-    payload = {
-        "testcaseid":"AUTHEN-1",
-        "usecase":"Get Bearer Token to call other endpoint - edit"
-    }
-
-    response = requests.put(endpoint, headers=headers, json=payload)
-    print(response)
 
 
 
