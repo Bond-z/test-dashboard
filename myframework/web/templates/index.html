@@ -305,6 +305,25 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Test Cycles</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                {% if cycles %}
+                    {% for cycle in cycles %}
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="/{{cycle}}">{{ cycle }}</a></li>
+                        <!-- <li class="nav-item"> <a class="nav-link" href="{% static 'pages/ui-features/dropdowns.html' %}">Dropdowns</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{% static 'pages/ui-features/typography.html' %}">Typography</a></li> -->
+                    </ul>
+                    {% endfor %}
+                {% endif %}
+            </div>
+          </li>
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
               <span class="menu-title">UI Elements</span>
               <i class="menu-arrow"></i>
             </a>
@@ -315,7 +334,8 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
               <i class="icon-columns menu-icon"></i>
@@ -405,7 +425,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Aamir {{ cycles }}</h3>
+                  <h3 class="font-weight-bold">Welcome Aamir {{ all_cycles }}</h3>
                   <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                 </div>
                 <div class="col-12 col-xl-4">
